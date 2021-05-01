@@ -9,6 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 public class RabbitMqConfig {
+    //config
+    @Value("${spring.rabbitmq.host}")
+    private String brokerHost;
+    @Value("${spring.rabbitmq.username}")
+    private String brokerUsername;
+    @Value("${spring.rabbitmq.password}")
+    private  String brokerPassword;
+
     //user-login
     @Value("${app.message.internal.exchange.user-login}")
     private String userLoginExchange;
