@@ -9,11 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 public class RabbitMqConfig {
-
     //user-login
     @Value("${app.message.internal.exchange.user-login}")
     private String userLoginExchange;
-    @Value("${app.message.internal.exchange.event.user-login}")
+    @Value("${app.message.event.user-login}")
     private String userLoginEventQueue;
 
 }
