@@ -18,4 +18,11 @@ public class RabbitMqConfig {
 
     @Value("${app.message.queue.user.register.event.routing.key}")
     private String userRegisterEventRoutingKey;
+
+    //user-login
+    @Value("${app.message.queue.user.login.exchange}")
+    private String userLoginExchange;
+    @Value("${app.message.queue.user.login.event.name}")
+    private String userLoginEventQueue;
+
 }

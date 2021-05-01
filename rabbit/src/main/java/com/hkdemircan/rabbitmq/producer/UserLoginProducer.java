@@ -9,28 +9,26 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class UserRegisterProducer {
-
+public class UserLoginProducer {
     @Autowired
     private RabbitMqConfig rabbitMqConfig;
-
-    private String userRegisterExchange;
-    private String userRegisterEventRoutingKey;
+    private String userLoginExchange;
 
     @PostConstruct
     public void init() {
-        userRegisterExchange = rabbitMqConfig.getUserRegisterExchange();
-        userRegisterEventRoutingKey = rabbitMqConfig.getUserRegisterEventRoutingKey();
+        userLoginExchange = rabbitMqConfig.getUserLoginExchange();
     }
+
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void sendToRegisterQueue(User user){
+    public void userLoginProducer(User user){
         try{
-            rabbitTemplate.convertAndSend(userRegisterExchange, userRegisterEventRoutingKey, user);
-            System.out.println("User register event sent to queue -> " + user.toString());
+            rabbitTemplate.convertAndSend(userLoginExchange, "", user);
+            System.out.println("User login event sent to queue -> " + user.toString());
         }catch (Exception e) {
             System.out.println(e);
         }
+
     }
 }

@@ -1,6 +1,7 @@
 package com.hkdemircan.rabbitmq.controller;
 
 import com.hkdemircan.rabbitmq.model.User;
+import com.hkdemircan.rabbitmq.producer.UserLoginProducer;
 import com.hkdemircan.rabbitmq.producer.UserRegisterProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +16,20 @@ public class RabbitSendQueueController {
     @Autowired
     private UserRegisterProducer userRegisterProducer;
 
-    @PostMapping
-    public User sendToQueue(@RequestBody User user){
-        System.out.println("sendtoQueue received controller : " + user.toString());
-        userRegisterProducer.sendToQueue(user);
+    @Autowired
+    private UserLoginProducer userLoginProducer;
+
+    @PostMapping("/register")
+    public User sendToRegisterQueue(@RequestBody User user){
+        System.out.println("sendtoQueue received register method : " + user.toString());
+        userRegisterProducer.sendToRegisterQueue(user);
+        return user;
+    }
+
+    @PostMapping("/login")
+    public User sendToLoginQueue(@RequestBody User user){
+        System.out.println("sendtoQueue received login method : " + user.toString());
+        userLoginProducer.userLoginProducer(user);
         return user;
     }
 }
