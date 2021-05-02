@@ -1,4 +1,4 @@
-# Spring Boot Messaging with RabbitMQ
+<h1 align="center"> Spring Boot Messaging with RabbitMQ </h1> <br>
 <p align="center">
   <a href="#">
     <img alt="Techs" title="Techs" src="https://user-images.githubusercontent.com/34090058/116822958-5c75e980-ab8a-11eb-92f7-d9a3ac5f1516.png"width="700">
