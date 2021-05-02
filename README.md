@@ -1,12 +1,16 @@
 # Spring Boot Messaging with RabbitMQ
-
+<p align="center">
+  <a href="#">
+    <img alt="Techs" title="Techs" src="https://user-images.githubusercontent.com/34090058/116822958-5c75e980-ab8a-11eb-92f7-d9a3ac5f1516.png"width="700">
+  </a>
+</p>
 ### How can i run RabbitMQ ?
 
 ```
 $  docker-compose -f docker-compose.yml up -d
 ```
 
-### How is it work?
+### How does it work?
 - There are 3 examples within the project,
 Exchange Types
 1) Direct, 
